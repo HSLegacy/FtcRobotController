@@ -61,28 +61,23 @@ public class autoTutorial extends LinearOpMode {
 
     /* Declare OpMode members. */
     //we use variables to declare our motors
-    private DcMotor         Motor   = null;
+    private DcMotor Motor = null;
+    private Servo Servo = null;
 
-    private ElapsedTime     runtime = new ElapsedTime();
+    private ElapsedTime runtime = new ElapsedTime();
 
-    static final double     FORWARD_SPEED = 0.6;
-    static final double     TURN_SPEED    = 0.5;
+
+    //challenge: try making variables for motor speed
 
     @Override
     public void runOpMode() {
 
         // Initialize the drive system variables.
-        leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
-        rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
-        armDrive = hardwareMap.get(DcMotor.class, "arm_drive");
-        rightClaw = hardwareMap.get(Servo.class, "right_claw");
-        leftClaw = hardwareMap.get(Servo.class, "left_claw");
+        Motor  = hardwareMap.get(DcMotor.class, "Motor");
 
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
-        // When run, this OpMode should start both motors driving forward. So adjust these two lines based on your first test drive.
-        // Note: The settings here assume direct drive on left and right wheels.  Gear Reduction or 90 Deg drives may require direction flips
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        //leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        //rightDrive.setDirection(DcMotor.Direction.FORWARD);
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Ready to run");    //
@@ -94,23 +89,16 @@ public class autoTutorial extends LinearOpMode {
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
-        // Drive forward for 3 seconds
-        leftDrive.setPower(FORWARD_SPEED);
-        rightDrive.setPower(FORWARD_SPEED);
-        sleep(3000);
-
+        // Use the two motors to drive foward for three seconds
+        //drive.setPower(1);
+        //drive2.setPower(2);
+        //sleep(1000);
 
         // Drive Backward for 1 Second
-        leftDrive.setPower(-FORWARD_SPEED);
-        rightDrive.setPower(-FORWARD_SPEED);
-        sleep(1000);
 
-        //Try turning!
-
+        //Try turning
 
         // Stop
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
