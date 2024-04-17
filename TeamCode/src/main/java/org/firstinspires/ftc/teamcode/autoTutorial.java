@@ -87,11 +87,10 @@ public class autoTutorial extends LinearOpMode {
         waitForStart();
         //****EXECUTE CODE HERE****
 
-        // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
         // Use the two motors to drive foward for three seconds
         //drive.setPower(1);
-        //drive2.setPower(2);
+        //drive2.setPower(1);
         //sleep(1000);
 
         // Drive Backward for 1 Second
